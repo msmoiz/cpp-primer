@@ -1,0 +1,1 @@
+This repository contains code snippets and programs written while following along with the C++ Primer, 5th Edition, by Stanley B. Lippman, Josee Lajoie, and Barbara E. Moo.
