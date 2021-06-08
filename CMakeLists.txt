@@ -5,3 +5,5 @@ include_directories("src")
 add_executable(bookstore src/bookstore.cpp)
 
 add_executable(primitives src/primitives.cpp)
+
+add_executable(arraysplus src/arraysplus.cpp)
