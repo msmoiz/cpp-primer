@@ -3,7 +3,8 @@ project(cpp-primer)
 
 include_directories("src")
 add_executable(bookstore src/bookstore.cpp)
-
 add_executable(primitives src/primitives.cpp)
-
 add_executable(arraysplus src/arraysplus.cpp)
+add_executable(expressions src/expressions.cpp)
+add_executable(statements src/statements.cpp)
+add_executable(func src/func.cpp)
