@@ -20,7 +20,10 @@ public:
 	SalesData& combine(const SalesData& rhs);
 	double avg_price() const;
 
-	friend std::istream& read(std::istream& is, SalesData& item);
-	friend std::ostream& print(std::ostream& os, const SalesData& item);
-	friend SalesData add(const SalesData& lhs, const SalesData& rhs);
+	friend std::istream& operator>>(std::istream& is, SalesData& item);
+	friend std::ostream& operator<<(std::ostream& os, const SalesData& item);
+	friend SalesData operator+(const SalesData& lhs, const SalesData& rhs);
+	friend bool operator==(const SalesData& lhs, const SalesData& rhs);
+	friend bool operator!=(const SalesData& lhs, const SalesData& rhs);
+	
 };

@@ -26,7 +26,7 @@ SalesData::SalesData(const std::string& s, unsigned n, double p)
 
 SalesData::SalesData(std::istream& is)
 {
-	read(is, *this);
+	is >> *this;
 }
 
 std::string SalesData::isbn() const
@@ -46,7 +46,7 @@ double SalesData::avg_price() const
 	return units_sold ? revenue / units_sold : 0;
 }
 
-std::istream& read(std::istream& is, SalesData& item)
+std::istream& operator>>(std::istream& is, SalesData& item)
 {
 	double price = 0;
 	is >> item.book_no >> item.units_sold >> price;
@@ -54,16 +54,28 @@ std::istream& read(std::istream& is, SalesData& item)
 	return is;
 }
 
-std::ostream& print(std::ostream& os, const SalesData& item)
+std::ostream& operator<<(std::ostream& os, const SalesData& item)
 {
 	os << item.isbn() << " " << item.units_sold << " "
 		<< item.revenue << " " << item.avg_price();
 	return os;
 }
 
-SalesData add(const SalesData& lhs, const SalesData& rhs)
+SalesData operator+(const SalesData& lhs, const SalesData& rhs)
 {
 	SalesData sum = lhs;
 	sum.combine(rhs);
 	return sum;
+}
+
+bool operator==(const SalesData& lhs, const SalesData& rhs)
+{
+	return lhs.isbn() == rhs.isbn()
+	&& lhs.units_sold == rhs.units_sold
+	&& lhs.revenue == rhs.revenue;
+}
+
+bool operator!=(const SalesData& lhs, const SalesData& rhs)
+{
+	return !(lhs == rhs);
 }

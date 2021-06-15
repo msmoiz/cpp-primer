@@ -20,7 +20,7 @@ class Y
 int main()
 {
 	SalesData total;
-	if (read(cin, total))
+	if (cin >> total)
 	{
 		while (cin)
 		{
@@ -32,11 +32,11 @@ int main()
 
 			else
 			{
-				print(cout, total) << endl;
+				cout << total << endl;
 				total = trans;
 			}
 		}
-		print(cout, total);
+		cout << total;
 	}
 
 	else
